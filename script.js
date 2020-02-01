@@ -13,6 +13,7 @@ $(function (){
   // });
 
   // DECLARATIONS
+  //nbrMMceZO1IOwwdSGsU9iknxjJ82Mhgs
   let apiKey = "api-key=nbrMMceZO1IOwwdSGsU9iknxjJ82Mhgs";
   let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
   let queryString = "";
@@ -21,11 +22,25 @@ $(function (){
   let $numRecords = $("#numRecords");
   let $startYear = $("#startYear");
   let $endYear = $("#endYear");
+  let $articles = $(".articles");
 
+  function convertDate(date){
+    return `${date}0101`;
+  }
 
-  $(document).on("click", ".searchBtn", function({
+  $(document).on("click", ".searchBtn", function(){
+    queryString = `&q=${$searchTerm.text()}
+                   &begin_date=${$startYear.text()}0101
+                   &end_date=${$endYear.text()}0101`;
     
-  }));
+    $.get(`${queryURL}${queryString}${apiKey}`, function(articles) {
+        let results = articles.response.docs;
+        for (let i = 0; i < $numRecords.val(); i++){
+          //append a new li with this info
+          $articles.append($("<li>").text(results[i].abstract));
+        }
+    });
+  });
 
   $(document).on("click", ".clearBtn", function(){
 
