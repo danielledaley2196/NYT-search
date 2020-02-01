@@ -9,6 +9,9 @@ header.search {
 div.cardHeader {
     margin: 0px;
 }
+div.cardBody {
+    margin: 10px;
+}
 div.cardBox {
     padding: 0px;
 }
