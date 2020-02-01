@@ -1,0 +1,14 @@
+h1.theText {
+    color: white;
+    font-size: xx-large;
+}
+header.search {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+div.cardHeader {
+    margin: 0px;
+}
+div.cardBox {
+    padding: 0px;
+}
