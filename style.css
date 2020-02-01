@@ -15,3 +15,7 @@ div.cardBody {
 div.cardBox {
     padding: 0px;
 }
+button.theBut {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
